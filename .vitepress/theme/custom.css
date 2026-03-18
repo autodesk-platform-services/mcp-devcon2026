@@ -1,0 +1,251 @@
+/**
+ * Brand Colours
+ * #20252E  near-black         → page background
+ * #334245  dark teal-grey     → sidebar / secondary surfaces
+ * #25A195  mid teal           → secondary brand / hover
+ * #01b4a2  bright mint-teal   → primary brand / links / CTA
+ */
+
+/* -------------------------------------------------------------------------- */
+/* Brand tokens (light + dark)                                                 */
+/* -------------------------------------------------------------------------- */
+:root {
+  --vp-c-brand-1: #01b4a2;
+  --vp-c-brand-2: #25a195;
+  --vp-c-brand-3: #1d8a81;
+  --vp-c-brand-soft: rgba(0, 195, 177, 0.12);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Dark-mode surface overrides                                                 */
+/* -------------------------------------------------------------------------- */
+.dark {
+  /* Page backgrounds */
+  --vp-c-bg: #20252e;
+  --vp-c-bg-soft: #252c37;
+  --vp-c-bg-mute: #2a3140;
+  --vp-c-bg-elv: #2a3140;
+
+  /* Borders */
+  --vp-c-border: #334245;
+  --vp-c-divider: #334245;
+
+  /* Nav bar */
+  --vp-nav-bg-color: #20252e;
+
+  /* Sidebar */
+  --vp-sidebar-bg-color: #1c2028;
+
+  /* Code blocks */
+  --vp-code-block-bg: #1a1f27;
+
+  /* Custom block (tip) */
+  --vp-custom-block-tip-border: #01b4a2;
+  --vp-custom-block-tip-text: #d0faf7;
+  --vp-custom-block-tip-bg: rgba(0, 195, 177, 0.08);
+}
+
+/* -------------------------------------------------------------------------- */
+/* Nav bar                                                                     */
+/* -------------------------------------------------------------------------- */
+.VPNav {
+  border-bottom: 1px solid #334245 !important;
+}
+
+.VPNavBarTitle .title {
+  color: #01b4a2 !important;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Sidebar                                                                     */
+/* -------------------------------------------------------------------------- */
+.dark .VPSidebar {
+  background-color: #1c2028 !important;
+  border-right: 1px solid #334245;
+}
+
+.VPSidebarItem.is-active > .item .text {
+  color: #01b4a2 !important;
+  font-weight: 600;
+}
+
+.VPSidebarItem .text:hover {
+  color: #01b4a2 !important;
+}
+
+/* Active sidebar link underline/indicator */
+.VPSidebarItem.is-active > .item {
+  border-left: 3px solid #01b4a2;
+  padding-left: 8px;
+  margin-left: -11px;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Links                                                                       */
+/* -------------------------------------------------------------------------- */
+.vp-doc a {
+  color: #01b4a2;
+  text-decoration: none;
+}
+
+.vp-doc a:hover {
+  color: #25a195;
+  text-decoration: underline;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Buttons / CTA                                                               */
+/* -------------------------------------------------------------------------- */
+.VPButton.brand {
+  background-color: #01b4a2 !important;
+  border-color: #01b4a2 !important;
+  color: #20252e !important;
+  font-weight: 700;
+}
+
+.VPButton.brand:hover {
+  background-color: #25a195 !important;
+  border-color: #25a195 !important;
+}
+
+.VPButton.alt {
+  border-color: #334245 !important;
+  color: #01b4a2 !important;
+}
+
+.VPButton.alt:hover {
+  border-color: #01b4a2 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Hero                                                                        */
+/* -------------------------------------------------------------------------- */
+.VPHero .name {
+  background: linear-gradient(135deg, #01b4a2, #25a195) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+}
+
+.VPHero .tagline {
+  color: #8bb8b5 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Feature cards                                                               */
+/* -------------------------------------------------------------------------- */
+.dark .VPFeature {
+  background-color: #252c37 !important;
+  border: 1px solid #334245 !important;
+  transition: border-color 0.2s;
+}
+
+.dark .VPFeature:hover {
+  border-color: #01b4a2 !important;
+}
+
+.VPFeature .title {
+  color: #01b4a2 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Code                                                                        */
+/* -------------------------------------------------------------------------- */
+.dark .vp-doc code {
+  background-color: #1a1f27;
+  color: #7eddd8;
+}
+
+.dark div[class*="language-"] {
+  background-color: #1a1f27 !important;
+  border: none;
+  border-radius: 8px;
+}
+
+/* Code block language label */
+.dark div[class*="language-"]::before {
+  color: #25a195 !important;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Headings accent                                                             */
+/* -------------------------------------------------------------------------- */
+
+/* Light mode - use dark, legible teal/slate values */
+.vp-doc h1 {
+  color: #0d7a72;
+}
+.vp-doc h2 {
+  color: #145f5a;
+}
+.vp-doc h3 {
+  color: #1e6e67;
+}
+
+/* Dark mode - keep the original light teal values */
+.dark .vp-doc h1 {
+  color: #01b4a2;
+}
+.dark .vp-doc h2 {
+  color: #d0f0ee;
+  border-top: none;
+}
+.dark .vp-doc h3 {
+  color: #b2dedd;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Tables                                                                      */
+/* -------------------------------------------------------------------------- */
+.dark .vp-doc table {
+  border-collapse: collapse;
+  overflow: hidden;
+  border-radius: 6px;
+}
+
+.dark .vp-doc tr:nth-child(2n) {
+  background-color: #252c37;
+}
+
+.dark .vp-doc th {
+  background-color: #334245;
+  color: #01b4a2;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Scrollbar (Webkit)                                                          */
+/* -------------------------------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #20252e;
+}
+::-webkit-scrollbar-thumb {
+  background: #334245;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #25a195;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Full-width wrapper for CodeBrowser page                                     */
+/* -------------------------------------------------------------------------- */
+.code-browser-wide {
+  width: 100%;
+}
+
+/* -------------------------------------------------------------------------- */
+/* Shiki dual-theme: switch to dark palette in dark mode                       */
+/* -------------------------------------------------------------------------- */
+html.dark .shiki-themes,
+html.dark .shiki-themes span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-style: var(--shiki-dark-font-style) !important;
+  font-weight: var(--shiki-dark-font-weight) !important;
+}
