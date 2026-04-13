@@ -59,7 +59,7 @@ export default defineConfig({
 
     nav: [
       { text: "Home", link: "/" },
-      { text: "Start Workshop", link: "/01-establishing-mcp-communication" },
+      { text: "Start Workshop", link: "/1-establishing-mcp-communication" },
       { text: "Source Code", link: "/code-states" },
       {
         text: "Download Slides",
