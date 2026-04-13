@@ -55,31 +55,50 @@ We add one new tool:
 Inside `createServer()`, after the existing tools, register the user profile tool:
 
 ```javascript
-server.registerTool(
-  "get_user_info",
-  {
-    description:
-      "Returns the Autodesk profile of the currently logged-in user. " +
-      "The user must first authenticate by visiting http://localhost:3001/auth/login in their browser.",
-  },
-  async () => {
-    if (!userAccessToken) {
+  // Tool 3: get_user_info
+  server.registerTool(
+    "get_user_info",
+    {
+      description:
+        "Returns the Autodesk profile of the currently logged-in user. " +
+        "The user must first authenticate by visiting http://localhost:3001/auth/login in their browser.",
+    },
+    async () => {
+      if (!userAccessToken) {
+        return {
+          content: [
+            {
+              type: "text",
+              text: "Not authenticated. Ask the user to open http://localhost:3001/auth/login in their browser to log in with Autodesk.",
+            },
+          ],
+        };
+      }
+
+      const response = await fetch(
+        "https://api.userprofile.autodesk.com/userinfo",
+        {
+          headers: { Authorization: `Bearer ${userAccessToken}` },
+        },
+      );
+
+      if (!response.ok) {
+        return {
+          content: [{ type: "text", text: `Error: ${response.status}` }],
+        };
+      }
+
+      const user = await response.json();
       return {
         content: [
           {
             type: "text",
-            text: "Not authenticated. Ask the user to open http://localhost:3001/auth/login in their browser to log in with Autodesk.",
+            text: `Name: ${user.name}\nEmail: ${user.email}\nAutodesk ID: ${user.sub}`,
           },
         ],
       };
-    }
-
-    const response = await fetch(
-      "https://developer.api.autodesk.com/userinfo",
-      {
-        headers: { Authorization: `Bearer ${userAccessToken}` },
-      },
-    );
+    },
+  );
 ```
 
 > **Note:** The `/userinfo` endpoint follows the [OpenID Connect UserInfo](https://openid.net/specs/openid-connect-core-1_0.html#UserInfo) standard. See the [OIDC UserInfo reference](https://aps.autodesk.com/en/docs/profile/v2/reference/restapireference/oidcuserinfo/) for full details.
