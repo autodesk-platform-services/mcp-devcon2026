@@ -14,8 +14,8 @@ hero:
       link: ./Workshop%20MCP%20Devcon%2014-04-2026.pdf
       target: _blank
     - theme: alt
-      text: YouTube Playlist (Coming Soon)
-      link: "#"
+      text: YouTube Playlist
+      link: https://www.youtube.com/playlist?list=PLuFh5NgXkweMThuxCYF_wTCQdy2O5EyFZ
       target: _blank
 
 features:
